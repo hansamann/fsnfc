@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<ListView 
+	android:id="@+id/list"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:visibility="gone" />
+    
+<ProgressBar
+	android:id="@+id/progress"
+	android:layout_width="80dp"
+	android:layout_height="80dp"
+	android:visibility="visible"
+	android:layout_alignParentLeft="true"
+	android:layout_alignParentBottom="true"
+	android:layout_marginBottom="110dp"
+	android:layout_marginLeft="70dp"
+/>  
+</RelativeLayout>

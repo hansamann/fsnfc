@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, DashboardActivity!</string>
+    <string name="app_name">NFC Checkin</string>
+    <string name="near">near %s</string>
+    <string name="refresh">Refresh</string>
+    <string name="preferences">Settings</string>
+    <string name="map">Location</string>
+    <string name="geo">geo:%1$s, %2$s</string>
+    <string name="dev_email">sven.haiges+nfc@gmail.com</string>
+    
+    <string name="news">
+    	What\'s new in v%s?\n\n NEWS 
+    </string>
+</resources>
+
+

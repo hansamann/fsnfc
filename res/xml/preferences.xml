@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory 
+        android:title="Tag Writing"
+        android:key="tag_writing">
+        
+        <CheckBoxPreference 
+            android:key="make_readonly"
+            android:summary="Should nfc tags be made readonly if supported?"
+            android:title="Make readonly" 
+            android:defaultValue="false"
+        />
+        
+            
+    </PreferenceCategory>
+
+    <PreferenceCategory 
+        android:title="Checkin"
+		android:key="checkin">
+
+        <EditTextPreference
+            android:key="checkin_message"
+            android:title="Message" 
+            android:summary="Defines the message posted with each checkin"
+            android:dialogTitle="Message"
+            android:dialogMessage="Provide a message"    
+            android:defaultValue="NFC Checkin - http://nfc-checkin.appspot.com/" />
+
+    </PreferenceCategory>
+     
+	<PreferenceCategory 
+        android:title="Feedback &amp; Links"
+		android:key="checkin">
+		<Preference
+                android:title="Buy NFC Tags"
+                android:summary="Opens the tagage.net online shop to buy tags"
+                android:key="buy_tags" />
+
+		<Preference
+                android:title="Send feedback"
+                android:summary="Send feedback via eMail"
+                android:key="feedback" />
+		<Preference
+                android:title="Share app"
+                android:summary="Share this app via Twitter or Facebook"
+                android:key="share" />
+                
+		<Preference
+                android:title="Rate Application"
+                android:summary="If you like the app, please rate it in the Android market"
+                android:key="rate" />                                    
+
+    </PreferenceCategory>    
+    
+</PreferenceScreen>

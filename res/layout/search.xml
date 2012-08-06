@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+	<RelativeLayout android:id="@+id/wrapper"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:visibility="gone">
+
+	<ListView android:id="@+id/list" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_above="@+id/address" android:layout_alignParentTop="true"
+		android:cacheColorHint="#00000000" />
+
+	<TextView android:id="@+id/address" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_alignParentBottom="true"
+		android:padding="3dp" android:background="#000000" android:ellipsize="end" android:singleLine="true"
+		android:gravity="center_horizontal"/>
+</RelativeLayout>
+
+<ProgressBar android:id="@+id/progress"
+	android:layout_width="40dp" android:layout_height="40dp"
+	android:visibility="visible" android:layout_centerInParent="true" />
+
+</RelativeLayout>
