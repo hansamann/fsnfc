@@ -3,3 +3,18 @@
 bin/AndroidManifest.xml
 
 bin/jarlist.cache
+bin/classes.dex
+bin/dexedLibs/annotations-adb9602e103d38d3540f04c61f0c29b3.jar
+bin/dexedLibs/gson-1.7.1-b94cc033efceba7e66452713e5a3f212.jar
+bin/fsnfc.apk
+bin/res/drawable-hdpi/ic_launcher.png
+bin/res/drawable-hdpi/icon.png
+bin/res/drawable-hdpi/map.png
+bin/res/drawable-hdpi/notification_icon.png
+bin/res/drawable-hdpi/preferences.png
+bin/res/drawable-hdpi/refresh.png
+bin/res/drawable-hdpi/tagage.png
+bin/res/drawable-hdpi/touch_green.png
+bin/res/drawable-ldpi/icon.png
+bin/res/drawable-mdpi/icon.png
+bin/resources.ap_
