@@ -9,8 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.google.ads.AdRequest;
-import com.google.ads.AdView;
+
 
 import de.flavor.fsnfc.dto.CheckinResponse;
 
@@ -23,9 +22,6 @@ public class CheckedinActivity extends Activity {
 		setContentView(R.layout.checkedin);
 		
 		TextView msg = (TextView)findViewById(R.id.msg);
-		
-		AdView adView = (AdView)this.findViewById(R.id.adView);
-	    adView.loadAd(new AdRequest());		
 		
 		if (getIntent().hasExtra("checkinResponse"))
 		{

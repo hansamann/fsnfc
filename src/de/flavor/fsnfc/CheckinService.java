@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -40,7 +41,7 @@ public class CheckinService extends IntentService {
 		
 		// token stuff
 		SharedPreferences prefs = getSharedPreferences("oauth", MODE_PRIVATE);
-		if (prefs.contains("access_token")) {
+		if (prefs != null && prefs.contains("access_token")) {
 			String token = prefs.getString("access_token", "NOVALUE");
 			Log.d("demo", "Got an access_token: " + token);
 			client = new FoursquareClient(token, this);
@@ -78,12 +79,7 @@ public class CheckinService extends IntentService {
 			}
 			else
 			{
-				int icon = R.drawable.notification_icon;
-				CharSequence tickerText = response.venue.getTitle();
-				long when = System.currentTimeMillis();
-
-				Notification notification = new Notification(icon, tickerText, when);
-
+				
 				String msg = response.getMessageNotification().message;
 				CharSequence contentTitle = null;
 				CharSequence contentText = null;
@@ -99,32 +95,60 @@ public class CheckinService extends IntentService {
 				}
 							
 				Intent notificationIntent = new Intent(Intent.ACTION_VIEW);
-				notificationIntent.setData(Uri.parse("http://foursquare.com/v/" + venue.getId()));
+				notificationIntent.setData(Uri.parse("https://foursquare.com/v/place/" + venue.getId()));
 				PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);				
 				
-				notification.setLatestEventInfo(this, contentTitle, contentText, contentIntent);
-				notificationManager.notify(CheckinService.CHECKIN_NOTIFICATION, notification);
+				Notification noti = new Notification.Builder(getApplicationContext())
+					.setContentTitle(contentTitle)
+					.setContentText(contentText)
+					.setSmallIcon(R.drawable.notification_icon)
+					.setTicker(response.venue.getTitle())
+					.setContentIntent(contentIntent)
+					.setWhen(System.currentTimeMillis())
+					.setAutoCancel(true)
+					.getNotification();
+				
+				notificationManager.notify(CheckinService.CHECKIN_NOTIFICATION, noti);
 			}
 		}
 	}
 
 	private void beepNotification(Venue venue) {
-		int icon = R.drawable.notification_icon;
-		CharSequence tickerText = "Checking in...";
-		long when = System.currentTimeMillis();
-
-		Notification notification = new Notification(icon, tickerText, when);
-		notification.sound = Uri.parse("android.resource://de.flavor.fsnfc/" +R.raw.beep); 
 		
-		CharSequence contentTitle = "NFC Checkin";
-		CharSequence contentText = "Processing checkin...";
-						
 		Intent notificationIntent = new Intent(Intent.ACTION_VIEW);
-		notificationIntent.setData(Uri.parse("http://foursquare.com/v/" + venue.getId()));
+		notificationIntent.setData(Uri.parse("https://foursquare.com/v/" + venue.getId()));
 		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);				
 		
-		notification.setLatestEventInfo(this, contentTitle, contentText, contentIntent);
-		notificationManager.notify(CheckinService.CHECKIN_NOTIFICATION, notification);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		boolean useSound = prefs.getBoolean("use_sound", false);
+				
+		Notification noti = null;
+		if (useSound)
+		{
+		
+			noti = new Notification.Builder(getApplicationContext())
+				.setContentTitle(getString(R.string.checkin_notification_title))
+				.setContentText(getString(R.string.checkin_notification_text))
+				.setSmallIcon(R.drawable.notification_icon)
+				.setTicker(getString(R.string.checkin_notification_tickertext))
+				.setSound(Uri.parse("android.resource://de.flavor.fsnfc/" +R.raw.beep))
+				.setContentIntent(contentIntent)
+				.setWhen(System.currentTimeMillis())
+				.getNotification();
+		}
+		else
+		{
+			noti = new Notification.Builder(getApplicationContext())
+				.setContentTitle(getString(R.string.checkin_notification_title))
+				.setContentText(getString(R.string.checkin_notification_text))
+				.setSmallIcon(R.drawable.notification_icon)
+				.setTicker(getString(R.string.checkin_notification_tickertext))
+				.setContentIntent(contentIntent)
+				.setWhen(System.currentTimeMillis())
+				.getNotification();
+		}
+		
+		notificationManager.notify(CheckinService.CHECKIN_NOTIFICATION, noti);
 		
 	}
 

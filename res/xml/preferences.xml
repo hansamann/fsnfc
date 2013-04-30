@@ -27,6 +27,13 @@
             android:dialogTitle="Message"
             android:dialogMessage="Provide a message"    
             android:defaultValue="NFC Checkin - http://nfc-checkin.appspot.com/" />
+        
+        <CheckBoxPreference 
+            android:key="use_sound"
+            android:summary="Beep when checking in?"
+            android:title="Beep" 
+            android:defaultValue="false"
+        />        
 
     </PreferenceCategory>
      

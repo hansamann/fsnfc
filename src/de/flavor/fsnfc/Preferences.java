@@ -66,7 +66,7 @@ public class Preferences extends PreferenceActivity {
 						shareIntent
 								.putExtra(
 										android.content.Intent.EXTRA_TEXT,
-										"Check out NFC Checkin from the Android Market to checkin to Foursquare using NFC: http://bit.ly/koEBS5");
+										"Check out NFC Checkin to checkin to Foursquare using NFC: http://bit.ly/playstorenfc");
 
 						startActivity(Intent.createChooser(shareIntent,
 								"Share..."));
@@ -84,7 +84,7 @@ public class Preferences extends PreferenceActivity {
 						Intent rateIntent = new Intent(
 								android.content.Intent.ACTION_VIEW);
 						rateIntent.setData(Uri
-								.parse("https://market.android.com/details?id=de.flavor.fsnfc"));
+								.parse("https://play.google.com/store/apps/details?id=de.flavor.fsnfc"));
 						startActivity(rateIntent);
 
 						return true;
@@ -100,7 +100,7 @@ public class Preferences extends PreferenceActivity {
 						Intent rateIntent = new Intent(
 								android.content.Intent.ACTION_VIEW);
 						rateIntent.setData(Uri
-								.parse("http://www.tagage.net/tagage-shop/"));
+								.parse(getString(R.string.tagageshop)));
 						startActivity(rateIntent);
 
 						return true;

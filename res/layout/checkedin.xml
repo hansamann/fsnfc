@@ -5,7 +5,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-
 <TextView
     android:id="@+id/msg"
     android:layout_width="250dp"
@@ -16,12 +15,4 @@
     android:text="Cool! We got you at Roberto Beach Wasserski!"
     android:layout_height="wrap_content"
 	android:layout_centerInParent="true"  />    
-	
-<com.google.ads.AdView android:id="@+id/adView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    ads:adUnitId="a14dcc1ec721cfe"
-                    ads:adSize="BANNER"
-                    />
 </RelativeLayout>

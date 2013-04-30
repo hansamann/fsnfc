@@ -6,7 +6,7 @@ public abstract class Notification implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	public enum Type { MESSAGE, MAYORSHIP, LEADERBOARD, SCORE, TIP, BADGE, TIPALERT, NOTIFICATIONTRAY }
+	public enum Type { MESSAGE, MAYORSHIP, LEADERBOARD, SCORE, TIP, BADGE, TIPALERT, NOTIFICATIONTRAY, INSIGHTS }
 	
 	public Type type;
 

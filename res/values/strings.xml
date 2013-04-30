@@ -8,9 +8,14 @@
     <string name="map">Location</string>
     <string name="geo">geo:%1$s, %2$s</string>
     <string name="dev_email">sven.haiges+nfc@gmail.com</string>
+    <string name="tagageshop">http://bit.ly/tagageshop</string>
+    
+    <string name="checkin_notification_title">NFC Checkin</string>
+    <string name="checkin_notification_text">Processing checkin...</string>
+    <string name="checkin_notification_tickertext">Checking in...</string>
     
     <string name="news">
-    	What\'s new in v%s?\n\n NEWS 
+    	What\'s new in v%s?\n\nCheck-In notification disappears on touch. Fixed URL that is opened once you touch a checkin notification.   
     </string>
 </resources>
 

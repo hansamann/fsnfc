@@ -283,7 +283,7 @@ public class WriteActivity extends Activity {
 	
 	public void openTagAge(View v)
 	{
-		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.tagage.net/tagage-shop/"));
+		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.tagageshop)));
 		startActivity(intent);
 	}
 
